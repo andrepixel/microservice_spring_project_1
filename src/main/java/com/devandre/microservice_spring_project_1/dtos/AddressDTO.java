@@ -9,5 +9,4 @@ public class AddressDTO {
     private String number;
     private String city;
     private State state;
-    private String country;
 }

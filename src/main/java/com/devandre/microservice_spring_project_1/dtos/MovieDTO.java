@@ -10,6 +10,8 @@ public class MovieDTO {
     private String author;
     private String year;
     private String company;
-    private TypeOfMovie typeOfMovie;
+    private String resume;
+    private String[] movieCast;
+    private TypeOfMovie[] typeOfMovie;
     private ClassificationMovie classificationMovie;
 }
