@@ -1,11 +1,17 @@
-FROM openjdk:11-jdk-alpine
+FROM eclipse-temurin:11-alpine
 
-LABEL key="1.0.0"
+WORKDIR /opt/app
 
-RUN "apk update && apk upgrade -y && mkdir -p /home/microservice/src"
+RUN addgroup --system spring && adduser -S -s /usr/sbin/nologin -G spring spring
 
-COPY . /home/microservice/src
+ARG JAR_FILE
 
-WORKDIR /home/microservice/src
+COPY target/${JAR_FILE} app.jar
+
+RUN chown -R spring:spring .
+
+USER spring
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
 
 EXPOSE 8080
