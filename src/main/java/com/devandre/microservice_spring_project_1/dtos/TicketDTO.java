@@ -1,5 +1,6 @@
 package com.devandre.microservice_spring_project_1.dtos;
 
+import com.devandre.microservice_spring_project_1.utils.enums.ListOfCompanies;
 import com.devandre.microservice_spring_project_1.utils.enums.StatusOfTicket;
 import lombok.Data;
 
@@ -13,5 +14,5 @@ public class TicketDTO {
     private ClientDTO client;
     private LocalDateTime dateOfTicketGenerated;
     private StatusOfTicket statusOfTicket;
-    private String issuingCompany;
+    private ListOfCompanies listOfCompanies;
 }
