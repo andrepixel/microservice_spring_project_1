@@ -6,14 +6,15 @@ import io.github.benas.randombeans.EnhancedRandomBuilder;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class GeneratedTicketService {
-    
+
     @Scheduled(fixedRate = 5000)
     public void run() {
-        var newTicketGenerated = new EnhancedRandomBuilder().build().nextObject(TicketDTO.class);
+        var enhancedRandomBuilder = EnhancedRandomBuilder.aNewEnhancedRandomBuilder();
+        var newTicketGenerated = enhancedRandomBuilder.build().nextObject(TicketDTO.class);
 
         var logger = LoggerFactory.getLogger(GeneratedTicketService.class);
 
