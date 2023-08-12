@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+aws --endpoint http://localhost:4566 --profile localstack ssm put-parameter --name "/config/microservice_spring_project_1_localstack/helloworld" --value "Hello World Parameter Store" --type String
