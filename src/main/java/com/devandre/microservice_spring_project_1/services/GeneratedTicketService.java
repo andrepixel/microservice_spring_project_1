@@ -22,18 +22,20 @@ public class GeneratedTicketService {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    @Scheduled(fixedRate = 5000000)
+    @Scheduled(fixedRate = 10000)
     public void execute() {
-        var enhancedRandomBuilder = EnhancedRandomBuilder.aNewEnhancedRandomBuilder();
-        var newTicketGenerated = enhancedRandomBuilder.build().nextObject(TicketDTO.class);
-
         var logger = LoggerFactory.getLogger(GeneratedTicketService.class);
+
+        var enhancedRandomBuilder = EnhancedRandomBuilder.aNewEnhancedRandomBuilder();
+        var newTicketGenerated = enhancedRandomBuilder.build()
+                                                      .nextObject(TicketDTO.class);
 
         var newMessageKafka = new KafkaDTO();
 
         newMessageKafka.setTicketDTO(newTicketGenerated);
 
-        var response = kafkaTemplate.send(defaultTopic, UUID.randomUUID().toString(), newMessageKafka.toString());
+        var response = kafkaTemplate.send(defaultTopic, UUID.randomUUID()
+                                                            .toString(), newMessageKafka.toString());
 
         response.whenComplete((message, ex) -> {
             if (ex == null) {
