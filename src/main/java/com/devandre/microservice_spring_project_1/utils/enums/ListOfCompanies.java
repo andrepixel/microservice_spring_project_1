@@ -2,7 +2,7 @@ package com.devandre.microservice_spring_project_1.utils.enums;
 
 public enum ListOfCompanies {
     ENTERPRISE,
-    COSTELACION,
+    CONSTELLATION,
     BROTHER_OF_STELL,
     STARFIELD,
 }
