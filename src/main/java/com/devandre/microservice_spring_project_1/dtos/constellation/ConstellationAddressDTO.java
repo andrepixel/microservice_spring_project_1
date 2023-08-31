@@ -1,9 +1,10 @@
-package com.devandre.microservice_spring_project_1.dtos;
+package com.devandre.microservice_spring_project_1.dtos.constellation;
 
-import com.devandre.microservice_spring_project_1.utils.enums.State;
+import com.devandre.microservice_spring_project_1.shared.enums.State;
+
 import java.util.Objects;
 
-public class AddressDTO {
+abstract class AddressDTO {
     private String typeLocal;
     private String number;
     private String city;

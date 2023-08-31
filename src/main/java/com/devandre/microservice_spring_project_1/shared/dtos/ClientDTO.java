@@ -1,7 +1,8 @@
-package com.devandre.microservice_spring_project_1.dtos;
+package com.devandre.microservice_spring_project_1.shared.dtos;
+
 import java.util.Objects;
 
-public class ClientDTO {
+abstract class ClientDTO {
     private String name;
     private String age;
     private String email;
@@ -13,7 +14,14 @@ public class ClientDTO {
     public ClientDTO() {
     }
 
-    public ClientDTO(String name, String age, String email, String[] phones, String cep, AddressDTO address) {
+    public ClientDTO(
+            String name,
+            String age,
+            String email,
+            String[] phones,
+            String cep,
+            AddressDTO address
+    ) {
         this.name = name;
         this.age = age;
         this.email = email;
@@ -108,24 +116,49 @@ public class ClientDTO {
             return false;
         }
         ClientDTO clientDTO = (ClientDTO) o;
-        return Objects.equals(name, clientDTO.name) && Objects.equals(age, clientDTO.age) && Objects.equals(email, clientDTO.email) && Objects.equals(phones, clientDTO.phones) && Objects.equals(cep, clientDTO.cep) && Objects.equals(address, clientDTO.address);
+        return Objects.equals(
+                name,
+                clientDTO.name
+        ) && Objects.equals(
+                age,
+                clientDTO.age
+        ) && Objects.equals(
+                email,
+                clientDTO.email
+        ) && Objects.equals(
+                phones,
+                clientDTO.phones
+        ) && Objects.equals(
+                cep,
+                clientDTO.cep
+        ) && Objects.equals(
+                address,
+                clientDTO.address
+        );
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, email, phones, cep, address);
+        return Objects.hash(
+                name,
+                age,
+                email,
+                phones,
+                cep,
+                address
+        );
     }
 
     @Override
     public String toString() {
         return "{" +
-            " name='" + getName() + "'" +
-            ", age='" + getAge() + "'" +
-            ", email='" + getEmail() + "'" +
-            ", phones='" + getPhones() + "'" +
-            ", cep='" + getCep() + "'" +
-            ", address='" + getAddress() + "'" +
-            "}";
+                " name='" + getName() + "'" +
+                ", age='" + getAge() + "'" +
+                ", email='" + getEmail() + "'" +
+                ", phones='" + getPhones() + "'" +
+                ", cep='" + getCep() + "'" +
+                ", address='" + getAddress() + "'" +
+                "}";
     }
 
 }

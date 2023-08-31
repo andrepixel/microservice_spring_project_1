@@ -1,12 +1,12 @@
 package com.devandre.microservice_spring_project_1.dtos;
 
-import java.time.LocalDateTime;
+import com.devandre.microservice_spring_project_1.shared.enums.State;
+import com.devandre.microservice_spring_project_1.shared.enums.TypeSection;
 
-import com.devandre.microservice_spring_project_1.utils.enums.State;
-import com.devandre.microservice_spring_project_1.utils.enums.TypeSection;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class SectionDTO {
+abstract class SectionDTO {
     private String codeSection;
     private Integer quantityOfArmChair;
     private MovieDTO movie;
@@ -20,7 +20,16 @@ public class SectionDTO {
     public SectionDTO() {
     }
 
-    public SectionDTO(String codeSection, Integer quantityOfArmChair, MovieDTO movie, LocalDateTime dateOfSection, String localOfSection, State state, Boolean isPreLaunch, TypeSection typeSection) {
+    public SectionDTO(
+            String codeSection,
+            Integer quantityOfArmChair,
+            MovieDTO movie,
+            LocalDateTime dateOfSection,
+            String localOfSection,
+            State state,
+            Boolean isPreLaunch,
+            TypeSection typeSection
+    ) {
         this.codeSection = codeSection;
         this.quantityOfArmChair = quantityOfArmChair;
         this.movie = movie;
@@ -147,25 +156,58 @@ public class SectionDTO {
             return false;
         }
         SectionDTO sectionDTO = (SectionDTO) o;
-        return Objects.equals(codeSection, sectionDTO.codeSection) && Objects.equals(quantityOfArmChair, sectionDTO.quantityOfArmChair) && Objects.equals(movie, sectionDTO.movie) && Objects.equals(dateOfSection, sectionDTO.dateOfSection) && Objects.equals(localOfSection, sectionDTO.localOfSection) && Objects.equals(state, sectionDTO.state) && Objects.equals(isPreLaunch, sectionDTO.isPreLaunch) && Objects.equals(typeSection, sectionDTO.typeSection);
+        return Objects.equals(
+                codeSection,
+                sectionDTO.codeSection
+        ) && Objects.equals(
+                quantityOfArmChair,
+                sectionDTO.quantityOfArmChair
+        ) && Objects.equals(
+                movie,
+                sectionDTO.movie
+        ) && Objects.equals(
+                dateOfSection,
+                sectionDTO.dateOfSection
+        ) && Objects.equals(
+                localOfSection,
+                sectionDTO.localOfSection
+        ) && Objects.equals(
+                state,
+                sectionDTO.state
+        ) && Objects.equals(
+                isPreLaunch,
+                sectionDTO.isPreLaunch
+        ) && Objects.equals(
+                typeSection,
+                sectionDTO.typeSection
+        );
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codeSection, quantityOfArmChair, movie, dateOfSection, localOfSection, state, isPreLaunch, typeSection);
+        return Objects.hash(
+                codeSection,
+                quantityOfArmChair,
+                movie,
+                dateOfSection,
+                localOfSection,
+                state,
+                isPreLaunch,
+                typeSection
+        );
     }
 
     @Override
     public String toString() {
         return "{" +
-            " codeSection='" + getCodeSection() + "'" +
-            ", quantityOfArmChair='" + getQuantityOfArmChair() + "'" +
-            ", movie='" + getMovie() + "'" +
-            ", dateOfSection='" + getDateOfSection() + "'" +
-            ", localOfSection='" + getLocalOfSection() + "'" +
-            ", state='" + getState() + "'" +
-            ", isPreLaunch='" + isIsPreLaunch() + "'" +
-            ", typeSection='" + getTypeSection() + "'" +
-            "}";
+                " codeSection='" + getCodeSection() + "'" +
+                ", quantityOfArmChair='" + getQuantityOfArmChair() + "'" +
+                ", movie='" + getMovie() + "'" +
+                ", dateOfSection='" + getDateOfSection() + "'" +
+                ", localOfSection='" + getLocalOfSection() + "'" +
+                ", state='" + getState() + "'" +
+                ", isPreLaunch='" + isIsPreLaunch() + "'" +
+                ", typeSection='" + getTypeSection() + "'" +
+                "}";
     }
 }

@@ -1,10 +1,11 @@
 package com.devandre.microservice_spring_project_1.dtos;
 
-import com.devandre.microservice_spring_project_1.utils.enums.ClassificationMovie;
-import com.devandre.microservice_spring_project_1.utils.enums.TypeOfMovie;
+import com.devandre.microservice_spring_project_1.shared.enums.ClassificationMovie;
+import com.devandre.microservice_spring_project_1.shared.enums.TypeOfMovie;
+
 import java.util.Objects;
 
-public class MovieDTO {
+abstract class MovieDTO {
     private String name;
     private String author;
     private String year;
@@ -18,7 +19,16 @@ public class MovieDTO {
     public MovieDTO() {
     }
 
-    public MovieDTO(String name, String author, String year, String company, String resume, String[] movieCast, TypeOfMovie[] typeOfMovie, ClassificationMovie classificationMovie) {
+    public MovieDTO(
+            String name,
+            String author,
+            String year,
+            String company,
+            String resume,
+            String[] movieCast,
+            TypeOfMovie[] typeOfMovie,
+            ClassificationMovie classificationMovie
+    ) {
         this.name = name;
         this.author = author;
         this.year = year;
@@ -141,25 +151,58 @@ public class MovieDTO {
             return false;
         }
         MovieDTO movieDTO = (MovieDTO) o;
-        return Objects.equals(name, movieDTO.name) && Objects.equals(author, movieDTO.author) && Objects.equals(year, movieDTO.year) && Objects.equals(company, movieDTO.company) && Objects.equals(resume, movieDTO.resume) && Objects.equals(movieCast, movieDTO.movieCast) && Objects.equals(typeOfMovie, movieDTO.typeOfMovie) && Objects.equals(classificationMovie, movieDTO.classificationMovie);
+        return Objects.equals(
+                name,
+                movieDTO.name
+        ) && Objects.equals(
+                author,
+                movieDTO.author
+        ) && Objects.equals(
+                year,
+                movieDTO.year
+        ) && Objects.equals(
+                company,
+                movieDTO.company
+        ) && Objects.equals(
+                resume,
+                movieDTO.resume
+        ) && Objects.equals(
+                movieCast,
+                movieDTO.movieCast
+        ) && Objects.equals(
+                typeOfMovie,
+                movieDTO.typeOfMovie
+        ) && Objects.equals(
+                classificationMovie,
+                movieDTO.classificationMovie
+        );
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, author, year, company, resume, movieCast, typeOfMovie, classificationMovie);
+        return Objects.hash(
+                name,
+                author,
+                year,
+                company,
+                resume,
+                movieCast,
+                typeOfMovie,
+                classificationMovie
+        );
     }
 
     @Override
     public String toString() {
         return "{" +
-            " name='" + getName() + "'" +
-            ", author='" + getAuthor() + "'" +
-            ", year='" + getYear() + "'" +
-            ", company='" + getCompany() + "'" +
-            ", resume='" + getResume() + "'" +
-            ", movieCast='" + getMovieCast() + "'" +
-            ", typeOfMovie='" + getTypeOfMovie() + "'" +
-            ", classificationMovie='" + getClassificationMovie() + "'" +
-            "}";
+                " name='" + getName() + "'" +
+                ", author='" + getAuthor() + "'" +
+                ", year='" + getYear() + "'" +
+                ", company='" + getCompany() + "'" +
+                ", resume='" + getResume() + "'" +
+                ", movieCast='" + getMovieCast() + "'" +
+                ", typeOfMovie='" + getTypeOfMovie() + "'" +
+                ", classificationMovie='" + getClassificationMovie() + "'" +
+                "}";
     }
 }
